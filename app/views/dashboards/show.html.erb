@@ -1,7 +1,7 @@
 <h2>DASHBOARD!</h2>
 
-<% if current_user.has_profile? %>
+<% if @user.has_profile? %>
   YEAH
 <% else %>
-  NAY
+  <%= link_to "Create Profile", new_user_profile_path(@user) %>
 <% end %>
