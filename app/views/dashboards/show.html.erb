@@ -1,7 +1,7 @@
 <h2>DASHBOARD!</h2>
 <div>
-  <%= link_to "View Profile", @user %>
+  <%= link_to "View Profile", current_user %>
 </div>
 <div>
-  <%= link_to "Update Profile", edit_user_path(@user) %>
+  <%= link_to "Update Profile", edit_user_path(current_user) %>
 </div>

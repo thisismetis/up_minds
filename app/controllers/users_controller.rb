@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -27,8 +28,7 @@ class UsersController < ApplicationController
       :linked_in,
       :dribbble,
       :blog,
-      :personal_site,
-      :has_profile
+      :personal_site
       )
   end
 

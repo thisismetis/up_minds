@@ -5,6 +5,7 @@ class HomesController < ApplicationController
   end
 
   private
+  
   def goto_dashboard
     redirect_to dashboard_path
   end
