@@ -1,0 +1,13 @@
+<h2>Add a Featured Project</h2>
+<%= form_for  [current_user, @project] do |form|%>
+  <div>
+    <%= form.text_field :name, placeholder: "Project Name" %>
+  </div>
+  <div>
+    <%= form.url_field :url, placeholder: "Link to your Project" %>
+  </div>
+  <div>
+    <%= form.text_area :body, placeholder: "A couple sentences about your project..." %>
+  </div>
+  <%= form.submit "Update Project" %>
+<% end %>
