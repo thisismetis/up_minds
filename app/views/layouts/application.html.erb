@@ -10,7 +10,7 @@
 <h1><%= link_to 'upMinds', root_path %></h1>
 <% if signed_in? %>
   Signed in as: <%= current_user.email %>
-  <%= link_to 'Sign out', sign_out_path, :method => :delete %>
+  <%= link_to 'Sign out', sign_out_path, method: :delete %>
   <nav>
     <ul>
       <li><%= link_to "View Profile", current_user %></li>
