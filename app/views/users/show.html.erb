@@ -32,3 +32,11 @@
   <%= @user.bio %>
 </div>
 
+<div>
+  <% @user.projects.each do |project| %>
+  <div>
+    <%= link_to project.name, project.url %> 
+    <%= project.body %>
+  </div>
+  <% end %>
+</div>
