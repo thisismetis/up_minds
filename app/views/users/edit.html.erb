@@ -1,4 +1,5 @@
-<h2>Update profile!</h2>
+<h2>Update profile</h2>
+<h4>Update contact information:</h4>
 
 <%= form_for @user do |form|%>
   <div>
@@ -16,6 +17,7 @@
   <div>
     <%= form.telephone_field :telephone, placeholder: "Phone Number" %>
   </div>
+  <h4>Update links to your personal pages:</h4>
   <div>
     <%= form.url_field :github, placeholder: "Github link" %>
   </div>
@@ -43,4 +45,4 @@
   </div>
 <% end %>
 
-
+<%= link_to "Add a Featured Project", new_user_project_path(current_user) %>
