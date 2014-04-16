@@ -8,13 +8,21 @@
   SQL
   Java
   C
-  HTML
-  CSS
   PostgreSQL
   MongoDB
   XML
   ASP
   RSS
+  HTML
+  CSS
+  Illustration
+  Design
+  Typography
+  Sass
+  Less
+  Web Design
+  App Design
+  Mobile Design
 ).each do |skill|
   Skill.find_or_create_by(name: skill)
 end
