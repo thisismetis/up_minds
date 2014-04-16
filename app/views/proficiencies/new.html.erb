@@ -3,7 +3,7 @@
 <%= form_for [current_user, @proficiency], remote: true do |form| %>
   <div>
     <%= form.collection_select :skill_id, Skill.all, :id, :name, include_blank: "Programming Language" %>
-    <%= form.select :level, options_for_select([["Familiar With", "1"],["level 2", "2"], ["level 3", "3"], ["level 4", "4"], ["Wizard", "5"]]), include_blank: "Proficiency Level"  %> 
+    <%= form.select :level, Proficiency::LEVELS, include_blank: "Proficiency Level"  %>
     <%= form.submit "Add Skills" %>
   </div>
 <% end %>
