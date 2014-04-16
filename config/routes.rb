@@ -4,6 +4,7 @@ UpMinds::Application.routes.draw do
 
   resources :users, only: [:new, :edit, :show, :update] do
     resources :projects, only: [:new, :create, :show, :edit, :update]
+    resources :proficiencies, only: [:new, :create, :show, :edit, :update]
   end
   resource :dashboard, only: [:show]
 end
