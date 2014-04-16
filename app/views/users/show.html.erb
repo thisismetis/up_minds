@@ -31,7 +31,7 @@
 <h4> Skills: </h4>
 <% @user.proficiencies.each do |proficiency| %>
   <div>
-    <%= proficiency  %>
+    <%= proficiency.skill.name  %>
     <%= proficiency.level %>
   </div>
 <% end %>
