@@ -9,7 +9,7 @@
   <% if project.featured? %>
     <div>
       <em><b>Featured Project</b></em>
-      <%= button_to 'Remove this project from "Featured Projects"', unfeature_project_path(project)%>
+      <%= button_to 'Unfeature', unfeature_project_path(project)%>
     </div>
   <% else %>
     <%= button_to "Feature this project", feature_project_path(project) %>
