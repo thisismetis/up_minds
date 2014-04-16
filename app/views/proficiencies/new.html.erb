@@ -1,0 +1,13 @@
+<h2>Add Your Programming Skills</h2>
+
+<%= form_for [current_user, @proficiency], remote: true do |form| %>
+  <div>
+    <%= form.collection_select :skill_id, Skill.all, :id, :name, include_blank: "Programming Language" %>
+    <%= form.select :level, Proficiency::LEVELS, include_blank: "Proficiency Level"  %>
+    <%= form.submit "Add Skills" %>
+  </div>
+<% end %>
+
+<div id="proficiencies">
+  <%= render @proficiencies %>
+</div>
