@@ -26,7 +26,8 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(
       :name,
       :url,
-      :body
+      :body,
+      :featured
     )
   end
 end
