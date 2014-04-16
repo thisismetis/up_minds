@@ -45,12 +45,7 @@
 
 <h4>Featured Projects:</h4>
 <div>
-  <% @user.projects.each do |project| %>
-    <div>
-      <%= link_to project.name, project.url %>
-      <%= project.body %>
-    </div>
-  <% end %>
+  <%= render @projects %>
 </div>
 
 <div>
