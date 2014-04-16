@@ -14,6 +14,4 @@ class FeaturedProjectsController < ApplicationController
     @project.save
     redirect_to projects_path
   end
-
-  
 end
