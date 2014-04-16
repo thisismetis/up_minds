@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1><%= link_to 'upMinds', root_path %></h1>
+<h3><%= link_to 'Search', users_path %></h3>
 <% if signed_in? %>
   Signed in as: <%= current_user.email %>
   <%= link_to 'Sign out', sign_out_path, method: :delete %>
