@@ -1,12 +1,10 @@
-<% @users.each do |user| %>
-  <p>
-  <div>
-    <%= link_to user.first_name, user %><%= link_to user.last_name, user %>
-  </div>
-  <div>
-    location: <%= user.city %> <%= user.state %>
-  <div>
-    <%= user.proficiencies.name %>
-  </div>
-  </p>
-<% end %>
+<p>
+<div>
+  <%= link_to user.first_name, user %><%= link_to user.last_name, user %>
+</div>
+<div>
+  location: <%= user.city %> <%= user.state %>
+<div>
+  <%= user.proficiencies.name %>
+</div>
+</p>
