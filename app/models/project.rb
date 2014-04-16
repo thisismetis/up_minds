@@ -5,11 +5,11 @@ class Project < ActiveRecord::Base
     featured
   end
 
-  def feature!
+  def feature
     self.featured = true
   end
 
-  def unfeature!
+  def unfeature
     self.featured = false
   end
 end
