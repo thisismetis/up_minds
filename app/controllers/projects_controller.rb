@@ -1,4 +1,9 @@
 class ProjectsController < ApplicationController
+  def index
+    @user = current_user
+    @projects = @user.projects
+  end
+
   def new
     @project = Project.new
   end
@@ -6,6 +11,14 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.create(project_params)
     redirect_to current_user
+  end
+
+  def edit
+    #@project = Project.find(params[:id])
+  end
+
+  def update
+    @project = current_user.project.find(params[:id])
   end
 
   private

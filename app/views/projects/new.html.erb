@@ -1,5 +1,6 @@
-<h2>Add a Featured Project</h2>
-<%= form_for  [current_user, @project] do |form|%>
+<h2>Add a Project</h2>
+
+<%= form_for [current_user, @project] do |form|%>
   <div>
     <%= form.text_field :name, placeholder: "Project Name" %>
   </div>
@@ -9,5 +10,11 @@
   <div>
     <%= form.text_area :body, placeholder: "A couple sentences about your project..." %>
   </div>
-  <%= form.submit "Update Project" %>
+    <%= form.check_box :featured %>
+    <%= form.label :featured, 'Mark as "featured" project' %>
+  <div>
+    <%= form.submit "Update Project" %>  
+  </div>
 <% end %>
+
+<%= link_to "Add a Another Project", new_user_project_path(current_user) %>
