@@ -11,8 +11,8 @@ class ProficienciesController < ApplicationController
 
   private
 
-    def proficiency_params
-      params.require(:proficiency).permit(:level, :skill_id)
-    end
+  def proficiency_params
+    params.require(:proficiency).permit(:level, :skill_id)
+  end
 
 end
