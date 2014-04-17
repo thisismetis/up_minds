@@ -3,7 +3,7 @@
   PHP
   JavaScript
   C++
-  Ruby on Rails
+  Ruby\ on\ Rails
   Ruby
   SQL
   Java
@@ -20,9 +20,9 @@
   Typography
   Sass
   Less
-  Web Design
-  App Design
-  Mobile Design
+  Web\ Design
+  App\ Design
+  Mobile\ Design
 ).each do |skill|
   Skill.find_or_create_by(name: skill)
 end
