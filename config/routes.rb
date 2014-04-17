@@ -2,7 +2,7 @@ UpMinds::Application.routes.draw do
 
   root 'homes#show'
 
-  resources :users, only: [:index, :new, :edit, :show, :update] do
+  resources :users, only: [:new, :edit, :show, :update] do
     resources :projects, only: [:new, :create, :show]
     resources :proficiencies, only: [:new, :create, :show, :edit, :update]
   end
@@ -15,4 +15,5 @@ UpMinds::Application.routes.draw do
   end
 
   resource :dashboard, only: [:show]
+  resource :search, only: [:show]
 end
