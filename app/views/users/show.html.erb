@@ -28,13 +28,9 @@
   <%= @user.personal_site %>
 </div>
 <hr>
-<h4> Skills: </h4>
-<% @user.proficiencies.each do |proficiency| %>
-  <div>
-    <%= proficiency.skill.name %>
-    <%= proficiency.level %>
-  </div>
-<% end %>
+
+<div id="skillschart" style="width: 800px; height:350px;"></div>
+
 <hr>
 <h4>About me:</h4>
 
@@ -47,3 +43,46 @@
 <div>
   <%= render @projects %>
 </div>
+
+<div>
+  <%= link_to "View all your projects.", projects_path %>
+</div>
+
+<script>
+$(function () {
+    $('#skillschart').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        credits: {
+            text: '',
+        },
+        legend: {
+            enabled: false
+        },
+        title: {
+            text: 'Skills'
+        },
+        xAxis: {
+            categories: <%== @user.proficiencies.map(&:skill_name) %>,
+            gridLineWidth: 0,
+            max: 5,
+            labels: {
+                enabled: true
+            },
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+            gridLineWidth: 0,
+            labels: {
+                enabled: false
+            }
+        },
+        series: [{
+            data: <%== @user.proficiencies.map(&:level) %>
+        }],
+    });
+});
+</script>
