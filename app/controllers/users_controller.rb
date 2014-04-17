@@ -3,13 +3,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def index
-    @search = User.search do
-      fulltext params[:search]
-    end
-    @users = @search.results
-  end
-
   def edit
     @user = current_user
   end

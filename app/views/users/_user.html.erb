@@ -1,10 +1,13 @@
+<h2>
+  <%= link_to user.first_name, user%>
+  <%= link_to user.last_name, user%>
+</h2>
 <p>
-  <div>
-    <%= link_to user.first_name, user %><%= link_to user.last_name, user %>
-  </div>
-  <div>
-    location: <%= user.city %> <%= user.state %>
-  <div>
-    <%= user.proficiencies.name %>
-  </div>
+  location: <%= user.city%> <%= user.state%>
+  <% user.proficiencies.each do |proficiency| %>
+    <div>
+      skills: <%= proficiency.skill.name  %>
+      <%= proficiency.level %>
+    </div>
+  <% end %>
 </p>
