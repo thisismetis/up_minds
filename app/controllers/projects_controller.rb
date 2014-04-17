@@ -14,12 +14,18 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = current_user.projects.find(params[:id])
+    @project = find_project
   end
 
   def update
-    @project = current_user.projects.find(params[:id])
+    @project = find_project
     @project.update(project_params)
+    redirect_to projects_path
+  end
+
+  def destroy
+    project = find_project
+    project.destroy
     redirect_to projects_path
   end
 
@@ -32,5 +38,9 @@ class ProjectsController < ApplicationController
       :body,
       :featured
     )
+  end
+
+  def find_project
+    current_user.projects.find(params[:id])
   end
 end

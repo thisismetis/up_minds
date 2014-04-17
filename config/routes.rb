@@ -7,7 +7,7 @@ UpMinds::Application.routes.draw do
     resources :proficiencies, only: [:new, :create, :show, :edit, :update]
   end
 
-  resources :projects, only: [:index, :edit, :update] do
+  resources :projects, only: [:index, :edit, :update, :destroy] do
     member do
       post 'feature' => 'featured_projects#create'
       post 'unfeature' => 'featured_projects#destroy'
