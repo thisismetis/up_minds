@@ -2,17 +2,23 @@
 <div>
 
   <% @projects.each do |project| %>
+    <hr>
+
+    <%= render project %>
 
     <% if project.featured? %>
       <div>
-        <em><b>Featured Project</b></em>
-        <%= render project %>
+        <em><b>Featured Project</b></em>    
         <%= button_to 'Unfeature', unfeature_project_path(project)%>
       </div>
     <% else %>
-      <%= render project %>
       <%= button_to "Feature this project", feature_project_path(project) %>
     <% end %>
 
-   <% end %> 
+    <%= link_to "Update Project", edit_project_path(project) %>
+    <%= link_to "Delete Project", project,  
+      method: :delete, 
+      confirm: "Are you sure you want to delete this project?" %>
+
+  <% end %> 
 </div>
