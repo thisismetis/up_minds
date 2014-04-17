@@ -14,9 +14,9 @@
   <%= link_to 'Sign out', sign_out_path, method: :delete %>
   <nav>
     <ul>
-      <li><%= link_to "View Profile", current_user %></li>
-      <li><%= link_to "Update Profile", edit_user_path(current_user) %></li>
-      <li><%= link_to "Add a Project", new_user_project_path(current_user) %></li>
+      <li><%= link_to "View your Profile", current_user %></li>
+      <li><%= link_to "Update your Profile", edit_user_path(current_user) %></li>
+      <li><%= link_to "View your Projects", projects_path(current_user) %></li>
    </ul>
   </nav>
 <% else %>
