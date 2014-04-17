@@ -12,4 +12,8 @@ class Project < ActiveRecord::Base
   def unfeature
     self.featured = false
   end
+
+  def self.featured
+    where(featured: true)
+  end
 end
