@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>UpMinds</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <script src="http://code.highcharts.com/highcharts.js"></script>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<h1><%= link_to 'upMinds', root_path %></h1>
-  <%= form_for(:search, url: search_path, method: :get) do |form| %>
-    <%= form.text_field :query, placeholder: "Search Here" %>
-    <%= form.submit "Search" %>
-  <% end %>
-<% if signed_in? %>
-  Signed in as: <%= current_user.email %>
-  <%= link_to 'Sign out', sign_out_path, method: :delete %>
-  <nav>
-    <ul>
-      <li><%= link_to "View your Profile", current_user %></li>
-      <li><%= link_to "Update your Profile", edit_user_path(current_user) %></li>
-      <li><%= link_to "View your Projects", projects_path(current_user) %></li>
-      <li><%= link_to "Add Your Skills", new_user_proficiency_path(current_user) %></li>
-   </ul>
-  </nav>
-<% else %>
-  <%= link_to 'Sign in', sign_in_path %>
-<%end%>
+  <head>
+    <title>UpMinds</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <%= csrf_meta_tags %>
+  </head>
 
-  <div id="flash">
-    <% flash.each do |key, value| %>
-      <div class="flash <%= key %>"><%= value %></div>
+  <body>
+    <h1><%= link_to 'upMinds', root_path %></h1>
+
+    <%= form_for(:search, url: search_path, method: :get) do |form| %>
+      <%= form.text_field :query, placeholder: "Search Here" %>
+      <%= form.submit "Search" %>
     <% end %>
-  </div>
 
-<%= yield %>
+    <% if signed_in? %>
+      Signed in as: <%= current_user.name %>
+      <%= link_to 'Sign out', sign_out_path, method: :delete %>
+      <nav>
+        <ul>
+          <li><%= link_to "View your Profile", current_user %></li>
+          <li><%= link_to "Update your Profile", edit_user_path(current_user) %></li>
+          <li><%= link_to "View your Projects", projects_path(current_user) %></li>
+          <li><%= link_to "Add Your Skills", new_user_proficiency_path(current_user) %></li>
+        </ul>
+      </nav>
+    <% else %>
+      <%= link_to 'Sign in', sign_in_path %>
+    <%end%>
 
-</body>
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
+    <%= yield %>
+
+  </body>
 </html>
