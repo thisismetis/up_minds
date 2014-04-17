@@ -14,10 +14,13 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @project = current_user.projects.find(params[:id])
   end
 
   def update
-    @project = current_user.project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
+    @project.update(project_params)
+    redirect_to projects_path
   end
 
   private
