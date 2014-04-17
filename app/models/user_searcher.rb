@@ -13,7 +13,7 @@ class UserSearcher
 
   def matching_users
     if @query
-       matched_by_profile + matched_by_skills
+      matched_by_profile + matched_by_skills
     else
       User.none
     end
@@ -30,9 +30,9 @@ class UserSearcher
   end
 
   def matched_by_skills
-     User.joins(:proficiencies)
+    User.joins(:proficiencies)
     .joins(:skills)
-    .where("name ilike ?", fuzzy_query)
+    .where('name ilike ?', fuzzy_query)
     .uniq
   end
 
