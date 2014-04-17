@@ -2,17 +2,7 @@
 
   <%= link_to project.name, project.url %> 
   <%= project.body %> 
-  <em> <small> Project created at:
-    <%= time_ago_in_words(project.created_at) %> ago 
+  <em> <small> Project created
+    <b><%= time_ago_in_words(project.created_at) %> </b> ago 
     </small></em>
-
-  <% if project.featured? %>
-    <div>
-      <em><b>Featured Project</b></em>
-      <%= button_to 'Unfeature', unfeature_project_path(project)%>
-    </div>
-  <% else %>
-    <%= button_to "Feature this project", feature_project_path(project) %>
-  <% end %>
-
 <% end %>

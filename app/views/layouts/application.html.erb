@@ -16,7 +16,7 @@
     <ul>
       <li><%= link_to "View Profile", current_user %></li>
       <li><%= link_to "Update Profile", edit_user_path(current_user) %></li>
-      <li><%= link_to "Add a Project", new_user_project_path(current_user) %></li>
+      <li><%= link_to "View all your projects.", projects_path(current_user) %></li>
    </ul>
   </nav>
 <% else %>

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @projects = @user.projects.find_by(featured: true)
+    @projects = @user.projects.where(featured: true)
   end
 
   def index
