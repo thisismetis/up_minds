@@ -3,11 +3,19 @@ class UserSearcher
     @query = query
   end
 
-  def users
+  def matching_users
     User.where(
-      "first_name ilike ? OR last_name ilike ? OR city ilike ? OR state ilike ?",
-      fuzzy_query, fuzzy_query, fuzzy_query, fuzzy_query
+      "first_name ilike :query OR last_name ilike :query OR city ilike :query OR state ilike :query",
+      query: fuzzy_query
     )
+  end
+
+  def results
+    if @query
+      matching_users.order('created_at DESC')
+    else
+      []
+    end
   end
 
   private
