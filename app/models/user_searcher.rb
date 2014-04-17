@@ -13,7 +13,7 @@ class UserSearcher
 
   def matching_users
     if @query
-      matched_by_profile + matched_by_skills
+      matched_by_profile + matched_by_skills + match_by_level
     else
       User.none
     end
@@ -34,6 +34,15 @@ class UserSearcher
     .joins(:skills)
     .where('name ilike ?', fuzzy_query)
     .uniq
+  end
+
+  def match_by_level
+    if @query =~ /\A\d+\z/
+      User.joins(:proficiencies)
+        .where('level >= ?', query)
+    else
+      User.none
+    end
   end
 
   def fuzzy_query
