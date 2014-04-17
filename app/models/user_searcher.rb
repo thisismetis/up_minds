@@ -3,24 +3,27 @@ class UserSearcher
     @query = query
   end
 
-  def matching_users
-    User.where(
-      "first_name ilike :query OR last_name ilike :query OR city ilike :query OR state ilike :query",
-      query: fuzzy_query
-    )
-  end
-
   def results
-    if @query
-      matching_users.order('created_at DESC')
-    else
-      []
-    end
+    matching_users.order('created_at DESC')
   end
 
   private
 
   attr_reader :query
+
+  def matching_users
+    if @query
+      User.where(
+        "first_name ilike :query \
+         OR last_name ilike :query \
+         OR city ilike :query \
+         OR state ilike :query",
+        query: fuzzy_query
+      )
+    else
+      User.none
+    end
+  end
 
   def fuzzy_query
     "%#{query}%"
