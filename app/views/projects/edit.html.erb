@@ -1,6 +1,6 @@
-<h2>Add a Project</h2>
+<h2>Update Project</h2>
 
-<%= form_for [current_user, @project] do |form|%>
+<%= form_for @project do |form|%>
   <div>
     <%= form.text_field :name, placeholder: "Project Name" %>
   </div>
@@ -13,7 +13,7 @@
   <div>
     <%= form.check_box :featured %>
     <%= form.label :featured, 'Feature this project' %>
-  </div>
+  <div>
   <div>
     <%= form.submit "Update Project" %>  
   </div>
