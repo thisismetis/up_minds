@@ -3,5 +3,5 @@
 <%= @proficiency.skill.name %>
 <%= form_for [current_user, @proficiency] do |form| %>
   <%= form.select :level, Proficiency::LEVELS, include_blank: "Proficiency Level"  %>
-  <%= form.submit "Update Skill", method: :patch %>
+  <%= form.submit "Update Skill" %>
 <% end %>
