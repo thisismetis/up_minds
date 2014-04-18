@@ -4,7 +4,7 @@
   <div>
     <%= form.collection_select :skill_id, Skill.all, :id, :name, include_blank: "Programming Language" %>
     <%= form.select :level, Proficiency::LEVELS, include_blank: "Proficiency Level"  %>
-    <%= form.submit "Add Skills" %>
+    <%= form.submit "Add A Skill" %>
   </div>
 <% end %>
 

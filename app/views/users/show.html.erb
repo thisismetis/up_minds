@@ -1,13 +1,11 @@
 <h2><%= @user.first_name %> <%=@user.last_name %></h2>
 
 <div>
-  <%= @user.telephone %>
+  Phone: <b><%= @user.telephone %></b>
 </div>
 <div>
-  <%= @user.city %>
-</div>
-<div>
-  <%= @user.state %>
+  City: <b><%= @user.city %>,
+  <%= @user.state %></b>
 </div>
 <div>
   <%= @user.github %>
@@ -29,7 +27,7 @@
 </div>
 <hr>
 
-<div id="skillschart" style="width: 800px; height:350px;"></div>
+<div id="skillschart" style="width: 800px; height:250px;"></div>
 
 <hr>
 <h4>About me:</h4>
@@ -66,7 +64,6 @@ $(function () {
         xAxis: {
             categories: <%== @user.proficiencies.map(&:skill_name) %>,
             gridLineWidth: 0,
-            max: 5,
             labels: {
                 enabled: true
             },
