@@ -5,9 +5,8 @@ class User < ActiveRecord::Base
   has_many :projects
 
   def name
-
     if first_name.present? && last_name.present?
-       "#{first_name} #{last_name}"
+      "#{first_name} #{last_name}"
      else
        email
      end
