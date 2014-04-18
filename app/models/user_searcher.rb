@@ -4,45 +4,45 @@ class UserSearcher
   end
 
   def results
-    matching_users
+    find_users
   end
 
   private
 
   attr_reader :query
 
-  def matching_users
+  def find_users
     if @query
-      matched_by_profile + matched_by_skills + match_by_level
+      find_matching_users
     else
       User.none
     end
   end
 
-  def matched_by_profile
-    User.where(
-    "first_name ilike :query \
-     OR last_name ilike :query \
-     OR city ilike :query \
-     OR state ilike :query",
-    query: fuzzy_query
+  def find_matching_users
+    if skill_level_query?
+      find_by_level
+    else
+      find_by_text
+    end
+  end
+
+  def find_by_text
+    User.joins(:proficiencies).joins(:skills).where(
+      "first_name ilike :query \
+      OR last_name ilike :query \
+      OR city ilike :query \
+      OR state ilike :query \
+      OR name ilike :query"
     )
   end
 
-  def matched_by_skills
-    User.joins(:proficiencies)
-    .joins(:skills)
-    .where('name ilike ?', fuzzy_query)
-    .uniq
+  def skill_level_query?
+    @query =~ /\A\d+\z/
   end
 
-  def match_by_level
-    if @query =~ /\A\d+\z/
-      User.joins(:proficiencies)
-        .where('level >= ?', query)
-    else
-      User.none
-    end
+  def find_by_level
+    User.joins(:proficiencies).where('level >= ?', query)
   end
 
   def fuzzy_query
