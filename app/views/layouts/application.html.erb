@@ -4,7 +4,6 @@
   <title>UpMinds</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <script src="http://code.highcharts.com/highcharts.js"></script>
   <%= csrf_meta_tags %>
 </head>
 
@@ -21,10 +20,7 @@
           <li><%= link_to "Update your Profile", edit_user_path(current_user) %></li>
           <li><%= link_to "View your Projects", projects_path(current_user) %></li>
           <li><%= link_to "View your skills", user_proficiencies_path(current_user) %></li>
-        <% end %>
-
-        <% if signed_in? %>
-          <%= link_to 'Sign out', sign_out_path, method: :delete %>
+          <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
         <% end %>
       </ul>
     </div>

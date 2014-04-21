@@ -9,11 +9,15 @@ class Proficiency < ActiveRecord::Base
     uniqueness: { scope: :skill_id }
 
   LEVELS = {
-    "Exposure to" => "1",
+    "Some Exposure" => "1",
     "Limited Experience" => "2",
     "Intermediate Experience" => "3",
     "Advanced Experience" => "4",
     "Wizard" => "5"
   }
+
+  def label
+    LEVELS.key(level.to_s)
+  end
 
 end

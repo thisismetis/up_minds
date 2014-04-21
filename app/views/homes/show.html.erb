@@ -2,31 +2,32 @@
 
 
 
-
-<h3>Featured Minds </h3>
-<hr>
 <div>
-  <%= @user.name %>
+  <h3>Featured Minds </h3>
+  <hr>
+  <div>
+    <%= link_to @user1.name, @user1 %>
 
-  <div id="skillschart" style="width: 800px; height:250px;"></div>
-</div>
-<hr>
-<div>
-  <%= @user.name %>
+    <div id="skillschart1" style="width: 800px; height:250px;"></div>
+  </div>
+  <hr>
+  <div>
+    <%= link_to @user2.name, @user2 %>
 
-  <div id="skillschart" style="width: 800px; height:250px;"></div>
-</div>
-<hr>
-<div>
-  <%= @user.name %>
+    <div id="skillschart2" style="width: 800px; height:250px;"></div>
+  </div>
+  <hr>
+  <div>
+    <%= link_to @user3.name, @user3 %>
 
-  <div id="skillschart" style="width: 800px; height:250px;"></div>
+    <div id="skillschart3" style="width: 800px; height:250px;"></div>
+  </div>
+  <hr>
 </div>
-<hr>
 
 <script>
 $(function () {
-    $('#skillschart').highcharts({
+    $('#skillschart1').highcharts({
         chart: {
             type: 'bar'
         },
@@ -41,7 +42,7 @@ $(function () {
             color: '000000'
         },
         xAxis: {
-            categories: <%== @user.proficiencies.map(&:skill_name) %>,
+            categories: <%== @user1.proficiencies.map(&:skill_name) %>,
             gridLineWidth: 0,
             labels: {
                 enabled: true,
@@ -62,7 +63,91 @@ $(function () {
             }
         },
         series: [{
-            data: <%== @user.proficiencies.map(&:level) %>
+            data: <%== @user1.proficiencies.map(&:level) %>
+        }],
+    });
+});
+
+$(function () {
+    $('#skillschart2').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        credits: {
+            text: '',
+        },
+        legend: {
+            enabled: false
+        },
+        title: {
+            text: 'Skills',
+            color: '000000'
+        },
+        xAxis: {
+            categories: <%== @user2.proficiencies.map(&:skill_name) %>,
+            gridLineWidth: 0,
+            labels: {
+                enabled: true,
+            },
+        },
+        plotOptions: {
+            series: {
+                color: '#68228B'
+            }
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+            gridLineWidth: 0,
+            labels: {
+                enabled: false
+            }
+        },
+        series: [{
+            data: <%== @user2.proficiencies.map(&:level) %>
+        }],
+    });
+});
+
+$(function () {
+    $('#skillschart3').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        credits: {
+            text: '',
+        },
+        legend: {
+            enabled: false
+        },
+        title: {
+            text: 'Skills',
+            color: '000000'
+        },
+        xAxis: {
+            categories: <%== @user3.proficiencies.map(&:skill_name) %>,
+            gridLineWidth: 0,
+            labels: {
+                enabled: true,
+            },
+        },
+        plotOptions: {
+            series: {
+                color: '#68228B'
+            }
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+            gridLineWidth: 0,
+            labels: {
+                enabled: false
+            }
+        },
+        series: [{
+            data: <%== @user3.proficiencies.map(&:level) %>
         }],
     });
 });
