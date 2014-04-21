@@ -28,13 +28,16 @@ class UserSearcher
   end
 
   def find_by_text
-    User.select("users.*, skills.name").joins(:proficiencies).joins(:skills).where(
-      "first_name ilike :query \
-      OR last_name ilike :query \
-      OR city ilike :query \
-      OR state ilike :query \
-      OR skills.name ilike :query", query: fuzzy_query
-    ).uniq
+    User.select('users.*, skills.name')
+      .joins(:proficiencies)
+      .joins(:skills)
+      .where(
+        "first_name ilike :query \
+        OR last_name ilike :query \
+        OR city ilike :query \
+        OR state ilike :query \
+        OR skills.name ilike :query", query: fuzzy_query
+      ).uniq
   end
 
   def skill_level_query?
