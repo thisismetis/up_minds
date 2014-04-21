@@ -1,5 +1,4 @@
-class ProjectsController < ApplicationController
-  
+class ProjectsController < ApplicationController  
   def index
     @user = current_user
     @projects = @user.projects
