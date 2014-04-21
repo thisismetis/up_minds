@@ -1,0 +1,114 @@
+header.navigation {
+  background-color: #333333;
+  border-bottom: 1px solid #1a1a1a;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  height: 60px;
+  width: 100%;
+  z-index: 999; }
+
+header.navigation .menu-wrapper {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 9999; }
+
+header.navigation .menu-wrapper:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+header.navigation .logo {
+  float: left;
+  max-height: 60px;
+  padding-left: 1em;
+  padding-right: 2em; }
+
+header.navigation .logo img {
+  max-height: 60px;
+  padding: .8em 0; }
+
+header.navigation .menu-button {
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  display: block;
+  float: right;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 60px;
+  margin: 0;
+  padding-right: 1em;
+  text-transform: uppercase; }
+
+@media screen and (min-width: 53.75em) {
+  header.navigation .menu-button {
+    display: none; } }
+header.navigation .menu-button:hover {
+  color: white; }
+
+@media screen and (min-width: 53.75em) {
+  header.navigation .nav {
+    float: left; } }
+header.navigation ul#navigation-menu {
+  clear: both;
+  -webkit-transform-style: preserve-3d;
+  display: none;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  z-index: 9999; }
+
+@media screen and (min-width: 53.75em) {
+  header.navigation ul#navigation-menu {
+    display: inline;
+    margin: 0;
+    padding: 0; } }
+header.navigation ul li {
+  background: #333333;
+  display: block;
+  line-height: 60px;
+  overflow: hidden;
+  padding-right: .8em;
+  text-align: right;
+  width: 100%;
+  z-index: 9999; }
+
+@media screen and (min-width: 53.75em) {
+  header.navigation ul li {
+    background: transparent;
+    display: inline;
+    line-height: 60px;
+    padding-right: 2em;
+    text-decoration: none;
+    width: auto; } }
+header.navigation ul li a {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7); }
+
+header.navigation ul li a:hover {
+  color: white; }
+
+@media screen and (min-width: 53.75em) {
+  header.navigation .sign-up {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding-right: 1em; }
+
+  header.navigation .sign-up a {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    background: #477dca;
+    border-radius: 0.1875em;
+    color: white;
+    font-size: .8em;
+    font-weight: 800;
+    padding: .6em 1em;
+    text-transform: uppercase; }
+
+  header.navigation .sign-up a:hover {
+    background: #6f99d5; } }
+
+
