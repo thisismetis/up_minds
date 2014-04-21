@@ -27,6 +27,13 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     bcrypt (3.1.7)
+    bitters (0.9.3)
+      bourbon (>= 3.1)
+      sass (>= 3.2)
+      thor
+    bourbon (3.1.8)
+      sass (>= 3.2.0)
+      thor
     builder (3.1.4)
     clearance (1.2.1)
       bcrypt
@@ -60,6 +67,9 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
+    neat (1.5.0)
+      bourbon (>= 2.1)
+      sass (>= 3.2)
     pg (0.17.1)
     polyglot (0.3.4)
     pry (0.9.12.6)
@@ -125,10 +135,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bitters
+  bourbon
   clearance
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  neat
   pg
   pry-rails
   quiet_assets

@@ -7,6 +7,30 @@
   <script src="http://code.highcharts.com/highcharts.js"></script>
   <%= csrf_meta_tags %>
 </head>
+
+<header class="navigation">
+  <div class="menu-wrapper">
+    <a class="logo">
+      <img src="http://miniclips.phillipmartin.info/arrows/curve_up_purple_xl.gif" alt="">
+    </a>
+    <p class="menu-button" id="js-mobile-menu">MENU</p>
+    <div class="nav">
+      <ul id="navigation-menu">
+        <% if signed_in? %>
+          <li><%= link_to "View your Profile", current_user %></li>
+          <li><%= link_to "Update your Profile", edit_user_path(current_user) %></li>
+          <li><%= link_to "View your Projects", projects_path(current_user) %></li>
+          <li><%= link_to "View your skills", user_proficiencies_path(current_user) %></li>
+        <% end %>
+
+        <% if signed_in? %>
+          <%= link_to 'Sign out', sign_out_path, method: :delete %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</header>
+
 <body>
 <h1><%= link_to 'upMinds', root_path %></h1>
   <%= form_for(:search, url: search_path, method: :get) do |form| %>
@@ -15,16 +39,6 @@
   <% end %>
 <% if signed_in? %>
   Signed in as: <%= current_user.email %>
-  <%= link_to 'Sign out', sign_out_path, method: :delete %>
-  <nav>
-    <ul>
-      <li><%= link_to "View your Profile", current_user %></li>
-      <li><%= link_to "Update your Profile", edit_user_path(current_user) %></li>
-      <li><%= link_to "View your Projects", projects_path(current_user) %></li>
-      <li><%= link_to "View all your skills", user_proficiencies_path(current_user) %></li>
-      <li><%= link_to "Add Your Skills", new_user_proficiency_path(current_user) %></li>
-   </ul>
-  </nav>
 <% else %>
   <%= link_to 'Sign in', sign_in_path %>
 <%end%>

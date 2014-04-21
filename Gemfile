@@ -8,14 +8,13 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'clearance'
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
 group :doc do
   gem 'sdoc', require: false
 end
 
-group :development do
-  gem 'quiet_assets'
-  gem 'pry-rails'
-end
 
 group :development do
   gem 'quiet_assets'
