@@ -6,23 +6,18 @@
   </div>
 
   <% @projects.each do |project| %>
-    <hr>
+    <%= content_tag_for(:div, project, "projects") do %>
+      <hr>
 
-    <%= render project %>
-
-    <% if project.featured? %>
-      <div>
-        <em><b>Featured Project</b></em>    
-        <%= button_to 'Unfeature', unfeature_project_path(project)%>
+      <%= render project %>
+      <div class="feature-button-form">
+        <%= render "feature_button_form", project: project %>
       </div>
-    <% else %>
-      <%= button_to "Feature this project", feature_project_path(project) %>
+
+      <div>
+        <%= button_to "Update Project", edit_project_path(project), method: :get %>
+        <%= button_to "Delete Project", project, method: :delete, confirm: "Are you sure you want to delete this project?" %>
+      </div>
     <% end %>
-
-    <%= link_to "Update Project", edit_project_path(project) %>
-    <%= link_to "Delete Project", project,  
-      method: :delete, 
-      confirm: "Are you sure you want to delete this project?" %>
-
   <% end %> 
 </div>

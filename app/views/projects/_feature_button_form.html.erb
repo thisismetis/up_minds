@@ -1,0 +1,21 @@
+<% if project.featured? %>
+  <div>
+    <em><b>Featured Project</b></em>  
+    <%= button_to 'Unfeature', unfeature_project_path(project),
+      remote: true %>
+  </div>
+<% else %>
+  <div>
+    <%= button_to "Feature this project", feature_project_path(project), 
+      remote: true %>
+  </div>
+<% end %> 
+
+
+
+
+
+
+
+
+

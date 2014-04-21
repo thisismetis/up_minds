@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  
   def index
     @user = current_user
     @projects = @user.projects
@@ -20,7 +21,7 @@ class ProjectsController < ApplicationController
   def update
     @project = find_project
     @project.update(project_params)
-    redirect_to projects_path
+    #redirect_to projects_path
   end
 
   def destroy
