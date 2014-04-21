@@ -1,0 +1,2 @@
+template = "<%=j render "projects/feature_button_form", project: @project %>";
+$("#projects_project_<%= @project.id %> .feature-button-form").html(template);
