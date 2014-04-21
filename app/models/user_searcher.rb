@@ -33,7 +33,7 @@ class UserSearcher
       OR last_name ilike :query \
       OR city ilike :query \
       OR state ilike :query \
-      OR name ilike :query", query:fuzzy_query
+      OR name ilike :query", query: fuzzy_query
     )
   end
 
