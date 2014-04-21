@@ -2,16 +2,21 @@ class FeaturedProjectsController < ApplicationController
   before_action :authorize
 
   def create
-    @project = current_user.projects.find(params[:id])
+    @project = find_project
     @project.feature
     @project.save
-    redirect_to projects_path
+    render :change
   end
 
   def destroy
-    @project = current_user.projects.find(params[:id])
+    @project = find_project
     @project.unfeature
     @project.save
-    redirect_to projects_path
+    render :change
+  end
+
+  private
+  def find_project
+    current_user.projects.find(params[:id])
   end
 end
