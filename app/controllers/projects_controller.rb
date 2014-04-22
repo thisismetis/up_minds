@@ -5,10 +5,6 @@ class ProjectsController < ApplicationController
     @projects = @user.projects
   end
 
-  def new
-    @project = Project.new
-  end
-
   def create
     @project = current_user.projects.create(project_params)
     redirect_to projects_path
