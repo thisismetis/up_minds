@@ -2,17 +2,22 @@
 <hr>
 <h4>Add a New Project</h4>
 
+
+
 <%= form_for [current_user, @project] do |form|%>
   <div>
+    <%= form.label :name, "Project Name: " %>
     <%= form.text_field :name, placeholder: "Project Name" %>
   </div>
   <div>
+    <%= form.label :url, "Project url :" %>
     <%= form.url_field :url, placeholder: "Link to your Project" %>
   </div>
   <div>
-    <%= form.text_area :body, placeholder: "A couple sentences about your project..." %>
+    <%= form.label :body, "Project description: " %>
+    <%= form.text_area :body, 
+      placeholder: "A couple sentences about your project..." %>
   </div>
-  
   <div>
     <%= form.check_box :featured %>
     <%= form.label :featured, 'Feature this project' %>
@@ -23,13 +28,11 @@
 <% end %>
 
 <hr>
-<h4>Your Projects</h2>
+<h4>Your Projects</h4>
 <div>
-
   <% @projects.each do |project| %>
     <%= content_tag_for(:div, project, "projects") do %>
       <hr>
-
       <%= render project %>
 
       <div>  
@@ -54,3 +57,11 @@
     <% end %>
   <% end %> 
 </div>
+
+
+
+
+
+
+
+

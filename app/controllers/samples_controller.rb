@@ -11,6 +11,18 @@ class SamplesController < ApplicationController
     redirect_to project_samples_path
   end
 
+  def edit
+    @project = find_project
+    @sample = @project.samples.find(params[:id])
+  end
+
+  def update
+    @project = find_project
+    @sample = @project.samples.find(params[:id])
+    @sample.update(sample_params)
+    redirect_to project_samples_path
+  end
+
   def destroy
     project = find_project
     sample = project.samples.find(params[:id])

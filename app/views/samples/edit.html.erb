@@ -1,0 +1,19 @@
+<h4>Update "<%= @sample.name %>" Sample</h4>
+
+<%= form_for [@project, @sample] do |form|%>
+  <div>
+    <%= form.label :name, "Name of code/design sample: " %> 
+    <%= form.text_field :name, placeholder: "Sample Name" %>
+  </div>
+  <div>
+    <%= form.label :description, "Brief description: " %> 
+    <%= form.text_field :description, placeholder: "Description" %>
+  </div>
+  <div>
+    <%= form.label :url, "specific url for your sample: " %> 
+    <%= form.text_field :url, placeholder: "url" %>
+  </div>
+  <div>
+    <%= form.submit "Update project sample" %>  
+  </div>
+<% end %>

@@ -1,17 +1,40 @@
-<h2>Links to your "<%= @project.name %>" code/design samples </h2>
-  <hr>
-  <%= render @samples %>
+<h1><%= @project.name %> Samples </h1>
+<hr>
+<h4>Add a New Code/Design Sample</h4>
 
-<div>
 
-  <h3> Add a Project Sample </h3>
-  <%= form_for [@project, @sample] do |form| %>
+<%= form_for [@project, @sample] do |form| %>
+  <div>
     <%= form.label :name, "Name of code/design sample: " %> 
     <%= form.text_field :name, placeholder: "Sample Name" %>
+  </div>
+  <div>
     <%= form.label :description, "Brief description: " %> 
     <%= form.text_field :description, placeholder: "Description" %>
+  </div>
+  <div>
     <%= form.label :url, "specific url for your sample: " %> 
     <%= form.text_field :url, placeholder: "url" %>
+  </div>
+  <div>
     <%= form.submit "Add project sample" %>
+  </div>
+<% end %>
+
+<hr>
+<h4>Your Code/Design Samples</h4>
+<div>
+  <% @samples.each do |sample| %>
+    <hr>
+    <%= render sample %>
+
+    <div>
+      <%= link_to "Update Sample", edit_project_sample_path(@project, sample) %>
+      <br>
+      <%= link_to "Delete Sample", project_sample_path(@project, sample), 
+        method: :delete, 
+        confirm: "Are you sure you want to delete this code/design sample?" %>
+    </div>
+
   <% end %>
 </div>
