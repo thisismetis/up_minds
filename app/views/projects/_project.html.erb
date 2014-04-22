@@ -1,8 +1,4 @@
 <%= div_for project do %>
-
-  <%= link_to project.name, project.url %> 
+  <big><big><b><%= link_to project.name, project.url %></b></big></big> 
   <%= project.body %> 
-  <em> <small> Project created
-    <b><%= time_ago_in_words(project.created_at) %> </b> ago 
-    </small></em>
 <% end %>
