@@ -19,5 +19,4 @@ class Proficiency < ActiveRecord::Base
   def label
     LEVELS.key(level.to_s)
   end
-
 end

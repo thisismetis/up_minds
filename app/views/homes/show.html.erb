@@ -1,24 +1,22 @@
 <h2> Welcome to upMinds </h2>
 
-<div>
   <h3>Featured Minds </h3>
   <hr>
-  <div>
 
-  <% @user.each_with_index do |user, idx| %>
-
+<div>
+  <% @user.each_with_index do |user, index| %>
     <div>
       <%= link_to user.name, user %>
     </div>
 
-    <div id="skillschart<%= idx %>" style="width: 800px; height:250px;"></div>
+    <div id="skillschart<%= index %>" style="width: 800px; height:250px;"></div>
 
     <script>
-    var chart; var chart<%= idx %>
+    var chart; var chart<%= index %>
     $(function () {
       $chart = new Highcharts.Chart({
           chart: {
-              renderTo: 'skillschart<%= idx %>',
+              renderTo: 'skillschart<%= index %>',
               type: 'bar'
           },
           credits: {
@@ -60,3 +58,4 @@
     </script>
     <hr>
   <% end %>
+</div>
