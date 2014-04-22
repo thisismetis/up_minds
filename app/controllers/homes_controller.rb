@@ -2,9 +2,7 @@ class HomesController < ApplicationController
   before_action :goto_dashboard, if: :signed_in?
 
   def show
-    @user1 = User.all.sample
-    @user2 = User.all.sample
-    @user3 = User.all.sample
+    @user = User.order("RANDOM()").limit(3)
   end
 
   private
