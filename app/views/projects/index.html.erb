@@ -1,9 +1,30 @@
-<h2>Your Projects</h2>
-<div>
+<h1>Projects </h1>
+<hr>
+<h4>Add a New Project</h4>
 
+<%= form_for [current_user, @project] do |form|%>
   <div>
-    <%= link_to "Add a Project", new_user_project_path(current_user) %>
+    <%= form.text_field :name, placeholder: "Project Name" %>
   </div>
+  <div>
+    <%= form.url_field :url, placeholder: "Link to your Project" %>
+  </div>
+  <div>
+    <%= form.text_area :body, placeholder: "A couple sentences about your project..." %>
+  </div>
+  
+  <div>
+    <%= form.check_box :featured %>
+    <%= form.label :featured, 'Feature this project' %>
+  </div>
+  <div>
+    <%= form.submit "Add New Project" %>  
+  </div>
+<% end %>
+
+<hr>
+<h4>Your Projects</h2>
+<div>
 
   <% @projects.each do |project| %>
     <%= content_tag_for(:div, project, "projects") do %>
@@ -12,12 +33,12 @@
       <%= render project %>
 
       <div>  
-        Go to your <%= project.name %> 
-        <%= link_to "code/design samples" , project_samples_path(project) %>
+        <p> Go to your <%= project.name %> 
+        <%= link_to "code/design samples" , project_samples_path(project) %> </p>
       </div>
 
       <div> 
-        <%= link_to "Update Project", edit_project_path(project)%>
+        <%= link_to "Update Project", edit_project_path(project)%><br>
         <%= link_to "Delete Project", project, method: :delete, confirm: "Are you sure you want to delete this project?" %>
       </div>
 
