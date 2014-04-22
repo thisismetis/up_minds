@@ -43,7 +43,9 @@
 </div>
 
 <div>
-  <%= link_to "View all your projects.", projects_path %>
+  <% if @user == current_user %>
+    <%= link_to "View all your projects.", projects_path %>
+  <% end %>
 </div>
 
 <script>

@@ -1,0 +1,14 @@
+<h2>Links to your "<%= @project.name %>" code/design samples </h2>
+  <hr>
+  <%= render @samples %>
+
+<div>
+
+  <h3> Add a Project Sample </h3>
+  <%= form_for [@project, @sample] do |form| %>
+    Name of code/design sample: <%= form.text_field :name, placeholder: "Sample Name" %>
+    Brief description: <%= form.text_field :description, placeholder: "Description" %>
+    specific url for your sample: <%= form.text_field :url, placeholder: "url" %>
+    <%= form.submit "Add project sample" %>
+  <% end %>
+</div>

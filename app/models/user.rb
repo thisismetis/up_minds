@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :proficiencies
   has_many :skills, through: :proficiencies
   has_many :projects
+  has_many :samples, through: :projects
 
   def name
     if first_name.present? && last_name.present?
