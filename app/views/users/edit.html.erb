@@ -9,6 +9,15 @@
     <%= form.text_field :last_name, placeholder: "Last Name" %>
   </div>
   <div>
+    <<%= user_form.fields_for :type do |type_fields| %>
+    ...
+    Delete: <%= address_fields.check_box :_destroy %>
+  <% end %>%= form.check_box :employer %>
+  </div>
+  <div>
+    <%= form.check_box :developer %>
+  </div>
+  <div>
     <%= form.text_field :city, placeholder: "City" %>
   </div>
   <div>
@@ -18,28 +27,6 @@
     <%= form.telephone_field :telephone, placeholder: "Phone Number" %>
   </div>
   <h4>Update links to your personal pages:</h4>
-  <div>
-    <%= form.url_field :github, placeholder: "Github link" %>
-  </div>
-  <div>
-    <%= form.url_field :twitter, placeholder: "Twitter link" %>
-  </div>
-  <div>
-    <%= form.url_field :linked_in, placeholder: "LinkedIn link" %>
-  </div>
-  <div>
-    <%= form.url_field :dribbble, placeholder: "Dribbble link" %>
-  </div>
-  <div>
-    <%= form.url_field :blog, placeholder: "Personal blog link" %>
-  </div>
-  <div>
-    <%= form.url_field :personal_site, placeholder: "Personal website link" %>
-  </div>
-  <div>
-    <%= form.text_area :bio, placeholder: "About you" %>
-  </div>
-  <div>
     <%= hidden_field_tag(has_profile: :true) %>
     <%= form.submit "Update Personal Information" %>
   </div>
