@@ -29,7 +29,8 @@ class UsersController < ApplicationController
       :linked_in,
       :dribbble,
       :blog,
-      :personal_site
+      :personal_site,
+      :type
       )
   end
 

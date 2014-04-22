@@ -3,19 +3,13 @@
 
 <%= form_for @user do |form|%>
   <div>
+    <%= form.select :type, User::TYPES, include_blank: "User Type" %>
+  </div>
+  <div>
     <%= form.text_field :first_name, placeholder: "First Name" %>
   </div>
   <div>
     <%= form.text_field :last_name, placeholder: "Last Name" %>
-  </div>
-  <div>
-    <<%= user_form.fields_for :type do |type_fields| %>
-    ...
-    Delete: <%= address_fields.check_box :_destroy %>
-  <% end %>%= form.check_box :employer %>
-  </div>
-  <div>
-    <%= form.check_box :developer %>
   </div>
   <div>
     <%= form.text_field :city, placeholder: "City" %>
