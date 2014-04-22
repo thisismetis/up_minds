@@ -8,7 +8,7 @@ UpMinds::Application.routes.draw do
   end
 
   resources :projects, only: [:index, :edit, :update, :destroy] do
-    resources :samples, only: [:index, :new, :create, :destroy]
+    resources :samples, only: [:index, :new, :create, :edit, :update, :destroy]
     member do
       post 'feature' => 'featured_projects#create'
       post 'unfeature' => 'featured_projects#destroy'

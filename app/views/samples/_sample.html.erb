@@ -1,10 +1,4 @@
-<div>
-  <%= link_to(sample.name, sample.url) %>
-  <small>
-    <%= sample.description %>
-    <div>
-      <%= link_to "Delete Sample", project_sample_path(@project, sample), method: :delete, confirm: "Are you sure you want to delete this code/design sample?" %>
-    </div>
-  </small>
-  <hr> 
-</div>
+<%= div_for sample do %>
+  <big><%= link_to(sample.name, sample.url) %></big>
+  <%= sample.description %>
+<% end %>
