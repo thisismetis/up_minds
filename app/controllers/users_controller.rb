@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
-    redirect_to @user
+    redirect_to mind_path(@user)
   end
 
   private
@@ -29,7 +29,8 @@ class UsersController < ApplicationController
       :linked_in,
       :dribbble,
       :blog,
-      :personal_site
+      :personal_site,
+      :type
       )
   end
 

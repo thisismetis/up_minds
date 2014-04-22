@@ -4,6 +4,7 @@ class ProficienciesController < ApplicationController
     @proficiencies = current_user.proficiencies
   end
 
+
   def new
     @proficiency = Proficiency.new
     @proficiencies = current_user.proficiencies
@@ -23,13 +24,13 @@ class ProficienciesController < ApplicationController
   def update
     @proficiency = find_proficiency
     @proficiency.update(proficiency_params)
-    redirect_to user_proficiencies_path
+    redirect_to mind_proficiencies_path
   end
 
   def destroy
     @proficiency = find_proficiency
     @proficiency.destroy
-    redirect_to user_proficiencies_path
+    redirect_to mind_proficiencies_path
   end
 
   private

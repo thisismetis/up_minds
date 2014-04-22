@@ -8,6 +8,9 @@ class Proficiency < ActiveRecord::Base
   validates :user_id,
     uniqueness: { scope: :skill_id }
 
+  validates :skill_id, presence: true
+  validates :level, presence: true
+
   LEVELS = {
     "Some Exposure" => "1",
     "Limited Experience" => "2",

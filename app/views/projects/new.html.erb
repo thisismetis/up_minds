@@ -1,6 +1,6 @@
 <h2>Add a Project</h2>
 
-<%= form_for [current_user, @project] do |form|%>
+<%= form_for [current_user, @project], url:mind_projects_path do |form|%>
   <div>
     <%= form.text_field :name, placeholder: "Project Name" %>
   </div>
@@ -16,6 +16,6 @@
     <%= form.label :featured, 'Feature this project' %>
   </div>
   <div>
-    <%= form.submit "Update Project" %>  
+    <%= form.submit "Update Project" %>
   </div>
 <% end %>

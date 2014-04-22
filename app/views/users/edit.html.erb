@@ -1,7 +1,10 @@
 <h2>Update profile</h2>
 <h4>Update contact information:</h4>
 
-<%= form_for @user do |form|%>
+<%= form_for @user.becomes(User), url: user_path(@user) do |form|%>
+  <div>
+    <%= form.select :type, User::TYPES, include_blank: "User Type" %>
+  </div>
   <div>
     <%= form.text_field :first_name, placeholder: "First Name" %>
   </div>
@@ -18,28 +21,6 @@
     <%= form.telephone_field :telephone, placeholder: "Phone Number" %>
   </div>
   <h4>Update links to your personal pages:</h4>
-  <div>
-    <%= form.url_field :github, placeholder: "Github link" %>
-  </div>
-  <div>
-    <%= form.url_field :twitter, placeholder: "Twitter link" %>
-  </div>
-  <div>
-    <%= form.url_field :linked_in, placeholder: "LinkedIn link" %>
-  </div>
-  <div>
-    <%= form.url_field :dribbble, placeholder: "Dribbble link" %>
-  </div>
-  <div>
-    <%= form.url_field :blog, placeholder: "Personal blog link" %>
-  </div>
-  <div>
-    <%= form.url_field :personal_site, placeholder: "Personal website link" %>
-  </div>
-  <div>
-    <%= form.text_area :bio, placeholder: "About you" %>
-  </div>
-  <div>
     <%= hidden_field_tag(has_profile: :true) %>
     <%= form.submit "Update Personal Information" %>
   </div>

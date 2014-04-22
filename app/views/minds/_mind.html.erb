@@ -1,12 +1,12 @@
 <tr>
   <td>
-    <%= link_to user.name, user %>
+    <%= link_to mind.name, mind %>
   </td>
-  <td><%= user.city %></td>
-  <td><%= user.state %></td>
+  <td><%= mind.city %></td>
+  <td><%= mind.state %></td>
   <td>
     <ul>
-      <% user.proficiencies.each do |proficiency| %>
+      <% mind.proficiencies.each do |proficiency| %>
         <li><%= proficiency.skill_name %> <%= proficiency.level %>
         </li>
       <% end %>
