@@ -7,6 +7,9 @@ UpMinds::Application.routes.draw do
   resources :minds, only: [:show, :edit, :update] do
     resources :projects, only: [:new, :create, :show]
     resources :proficiencies
+    member do
+      post "watch"  => "watching_relationships#create"
+    end
   end
 
   resources :projects, only: [:index, :edit, :update, :destroy] do
@@ -16,6 +19,8 @@ UpMinds::Application.routes.draw do
       post 'unfeature' => 'featured_projects#destroy'
     end
   end
+
+
 
   resource :dashboard, only: [:show]
   resource :search, only: [:show]
