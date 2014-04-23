@@ -1,11 +1,8 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = current_user.projects
-  end
-
-  def new
-    @project = Project.new
+    @user = current_user.becomes(User)
     @projects = @user.projects
+    @project = Project.new
   end
 
   def create
