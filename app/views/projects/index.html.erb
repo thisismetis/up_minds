@@ -1,6 +1,6 @@
 <h1>Projects </h1>
 <hr>
-<h4>Add a New Project</h4>
+<h2>Add a New Project</h2>
 
 <%= form_for [current_user, @project] do |form|%>
   <div>
@@ -26,16 +26,21 @@
 <% end %>
 
 <hr>
-<h4>Your Projects</h4>
+<h2><u>Your Projects</u></h2>
 <div>
   <% @projects.each do |project| %>
     <%= content_tag_for(:div, project, "projects") do %>
-      <hr>
       <%= render project %>
 
+      
+      <div>
+        <h5>Code/Design Samples: </h5>
+        <%= render project.samples %>
+      </div>
+
+
       <div>  
-        <p> Go to your 
-          <%= project.name %> 
+        <p><em><small> Go to your "<%= project.name %>" </small></em>
           <%= link_to "code/design samples" , project_samples_path(project) %> 
         </p>
       </div>
