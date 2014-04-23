@@ -1,0 +1,15 @@
+<tr>
+  <td>
+    <%= link_to developer.name, developer %>
+  </td>
+  <td><%= developer.city %></td>
+  <td><%= developer.state %></td>
+  <td>
+    <ul>
+      <% developer.proficiencies.each do |proficiency| %>
+        <li><%= proficiency.skill_name %> <%= proficiency.level %>
+        </li>
+      <% end %>
+    </ul>
+  </td>
+</tr>

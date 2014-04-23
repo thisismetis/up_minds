@@ -17,10 +17,10 @@
     <div class="nav">
       <ul id="navigation-menu">
         <% if signed_in? %>
-          <li><%= link_to "View your Profile", user_path(@user) %></li>
-          <li><%= link_to "Update your Profile", edit_user_path(@user) %></li>
-          <li><%= link_to "View your Projects", projects_path(@user) %></li>
-          <li><%= link_to "View your skills", user_proficiencies_path(@user) %></li>
+          <li><%= link_to "View your Profile", user_path(current_user) %></li>
+          <li><%= link_to "Update your Profile", edit_user_path(current_user) %></li>
+          <li><%= link_to "View your Projects", projects_path(current_user) %></li>
+          <li><%= link_to "View your skills", user_proficiencies_path(current_user) %></li>
         <% end %>
 
         <% if signed_in? %>
