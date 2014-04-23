@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   include Clearance::User
   has_many :proficiencies
   has_many :skills, through: :proficiencies
-  has_many :projects
-  has_many :samples, through: :projects
+  has_many :projects, dependent: :destroy
+  has_many :samples, through: :projects, dependent: :destroy
 
   def name
     if first_name.present? && last_name.present?

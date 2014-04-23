@@ -30,17 +30,25 @@
 <div id="skillschart" style="width: 800px; height:250px;"></div>
 
 <hr>
-<h4>About me:</h4>
+<h3>About me:</h3>
 
 <div>
   <%= @user.bio %>
 </div>
 <hr>
 
-<h4>Featured Projects:</h4>
+<h3>Featured Projects:</h3>
 <div>
-  <%= render @projects %>
-</div>
+  <% @projects.each do |project| %>
+    <%= content_tag_for(:div, project, "projects") do %>
+      <%= render project %>
+      <div>
+        <h5>Code/Design Samples: </h5>
+        <%= render project.samples %>
+      </div>
+    <% end %>
+  <% end %>
+<div>
 
 <div>
   <% if @user == current_user %>
