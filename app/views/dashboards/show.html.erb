@@ -1,1 +1,13 @@
-<h2>DASHBOARD!</h2>
+<h2>Welcome</h2>
+
+<h3> Minds you are watching: </h3>
+<% @watched_users.each do |user| %>
+  <%= link_to user.name, mind_path(user) %>
+  <br>
+<% end %>
+
+<h3> The following Minds are watching you: </h3>
+<% @watchers.each do |user| %>
+  <%= link_to user.name, mind_path(user) %>
+  <br>
+<% end %>
