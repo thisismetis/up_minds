@@ -7,36 +7,11 @@
   City: <b><%= @user.city %>,
   <%= @user.state %></b>
 </div>
-<div>
-  <%= @user.github %>
-</div>
-<div>
-  <%= @user.twitter %>
-</div>
-<div>
-  <%= @user.linked_in %>
-</div>
-<div>
-  <%= @user.dribbble %>
-</div>
-<div>
-  <%= @user.blog %>
-</div>
-<div>
-  <%= @user.personal_site %>
-</div>
 <hr>
 
 <div id="skillschart" style="width: 800px; height:250px;"></div>
 
 <hr>
-<h4>About me:</h4>
-
-<div>
-  <%= @user.bio %>
-</div>
-<hr>
-
 <h4>Featured Projects:</h4>
 <div>
   <%= render @projects %>
