@@ -6,8 +6,7 @@ class User < ActiveRecord::Base
 
   TYPES = {
     "Employer" => "Employer",
-    "Developer" => "Developer",
-    "Designer" => "Designer"
+    "Job Seeker" => "Mind",
   }
 
   def name

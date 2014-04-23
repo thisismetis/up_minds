@@ -1,0 +1,15 @@
+<tr>
+  <td>
+    <%= link_to mind.name, mind %>
+  </td>
+  <td><%= mind.city %></td>
+  <td><%= mind.state %></td>
+  <td>
+    <ul>
+      <% mind.proficiencies.each do |proficiency| %>
+        <li><%= proficiency.skill_name %> <%= proficiency.level %>
+        </li>
+      <% end %>
+    </ul>
+  </td>
+</tr>

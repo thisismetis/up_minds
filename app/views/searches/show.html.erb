@@ -1,6 +1,6 @@
 <h1>Search results for "<%= @query %>":</h1>
 
-<% if @developers.empty? %>
+<% if @minds.empty? %>
   <p>No results match</p>
 <% else %>
   <table>
@@ -10,6 +10,6 @@
       <th><%= link_to "State", sort: "state", search: { query: @query } %></th>
       <th><%= link_to "Skill", sort: "skills.name", search: { query: @query } %></th>
     </tr>
-    <%= render @developers %>
+    <%= render @minds %>
   </table>
 <% end %>
