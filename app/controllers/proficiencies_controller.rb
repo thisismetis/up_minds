@@ -29,14 +29,14 @@ class ProficienciesController < ApplicationController
     @user = current_user
     @proficiency = find_proficiency
     @proficiency.update(proficiency_params)
-    redirect_to user_proficiencies_path
+    redirect_to mind_proficiencies_path
   end
 
   def destroy
     @user = current_user
     @proficiency = find_proficiency
     @proficiency.destroy
-    redirect_to user_proficiencies_path
+    redirect_to mind_proficiencies_path
   end
 
   private
