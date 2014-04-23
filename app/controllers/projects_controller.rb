@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   def index
+    @mind = current_user
     @user = current_user.becomes(User)
     @projects = @user.projects
     @project = Project.new

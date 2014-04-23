@@ -94,4 +94,14 @@ ActiveRecord::Schema.define(version: 20140423191551) do
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
+  create_table "watching_relationships", force: true do |t|
+    t.integer  "watcher_id"
+    t.integer  "watched_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "watching_relationships", ["watched_user_id"], name: "index_watching_relationships_on_watched_user_id", using: :btree
+  add_index "watching_relationships", ["watcher_id"], name: "index_watching_relationships_on_watcher_id", using: :btree
+
 end
