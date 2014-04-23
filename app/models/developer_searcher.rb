@@ -1,4 +1,4 @@
-class UserSearcher
+class DeveloperSearcher
   def initialize(query)
     @query = query
   end
@@ -15,7 +15,7 @@ class UserSearcher
     if @query
       find_matching_users
     else
-      User.none
+      Developer.none
     end
   end
 
@@ -28,7 +28,7 @@ class UserSearcher
   end
 
   def find_by_text
-    User.select('users.*, skills.name')
+    Developer.select('users.*, skills.name')
       .joins(:proficiencies)
       .joins(:skills)
       .where(
@@ -45,7 +45,7 @@ class UserSearcher
   end
 
   def find_by_level
-    User.joins(:proficiencies).where('level >= ?', query).uniq
+    Developer.joins(:proficiencies).where('level >= ?', query).uniq
   end
 
   def fuzzy_query

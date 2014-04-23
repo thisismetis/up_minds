@@ -7,7 +7,7 @@ UpMinds::Application.routes.draw do
     resources :proficiencies
   end
 
-  resources :developers, only: [:show]
+  resources :developers, only: [:show, :edit, :update]
 
   resources :projects, only: [:index, :edit, :update, :destroy] do
     member do

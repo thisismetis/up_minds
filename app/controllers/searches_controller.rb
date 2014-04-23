@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
   def show
     @query = params[:search][:query]
-    @developers = UserSearcher.new(@query).results.order(params[:sort])
+    @developers = DeveloperSearcher.new(@query).results.order(params[:sort])
   end
 end
