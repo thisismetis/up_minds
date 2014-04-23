@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   belongs_to :user
-  has_many :samples
+  has_many :samples, dependent: :destroy
 
   def featured?
     featured
