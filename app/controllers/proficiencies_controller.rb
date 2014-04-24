@@ -13,7 +13,7 @@ class ProficienciesController < ApplicationController
   def create
     @proficiency = current_user.proficiencies.new(proficiency_params)
     if !@proficiency.save
-      render nothing: true
+      render :errors
     end
   end
 

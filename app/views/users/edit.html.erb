@@ -2,6 +2,7 @@
 <h4>Update contact information:</h4>
 
 <%= form_for @user.becomes(User), url: user_path(@user) do |form|%>
+    <%= render "form_errors", target: @user %>
   <div>
     <%= form.select :type, User::TYPES, include_blank: "User Type" %>
   </div>
