@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   def unwatch(other_user)
     watched_users.destroy(other_user)
   end
-    
+
   def watching?(other_user)
     watched_user_ids.include? other_user.id
   end
