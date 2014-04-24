@@ -11,4 +11,8 @@ class HomesController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def choose_account_type
+    redirect_to type_path
+  end
+
 end

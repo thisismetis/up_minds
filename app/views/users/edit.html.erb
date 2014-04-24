@@ -1,6 +1,4 @@
-<h2>Update profile</h2>
-<h4>Update contact information:</h4>
-
+<h4>Update User Account information:</h4>
 <%= form_for @user.becomes(User), url: user_path(@user) do |form|%>
   <div>
     <%= form.select :type, User::TYPES, include_blank: "User Type" %>
@@ -20,7 +18,6 @@
   <div>
     <%= form.telephone_field :telephone, placeholder: "Phone Number" %>
   </div>
-  <h4>Update links to your personal pages:</h4>
     <%= hidden_field_tag(has_profile: :true) %>
     <%= form.submit "Update Personal Information" %>
   </div>

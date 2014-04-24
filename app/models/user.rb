@@ -17,4 +17,16 @@ class User < ActiveRecord::Base
        email
      end
    end
+
+  def no_type?
+    type.empty?
+  end
+
+  def employer?
+    type  == "Employer"
+  end
+
+  def mind?
+    type == "Mind"
+  end
 end

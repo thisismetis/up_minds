@@ -11,7 +11,13 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
-    redirect_to mind_path(@user)
+    if current_user.employer?
+      redirect_to dashboard_path
+    elsif current_user.mind?
+      redirect_to mind_path(@user)
+    else
+      redirect_to type_path
+    end
   end
 
   private
