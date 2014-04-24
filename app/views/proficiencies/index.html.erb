@@ -8,9 +8,12 @@
   <% @proficiencies.each do |proficiency| %>
     <div>
       <%= render proficiency %>
-      <%= button_to "Update your Skill Level", edit_mind_proficiency_path(current_user, proficiency), method: :get %>
-      <%= button_to "Delete Skill", mind_proficiency_path(current_user, proficiency), method: :delete,
-        confirm: "Are you sure you want to delete this skill?" %>
+      <div>
+        <%= link_to "Update your Skill Level", edit_mind_proficiency_path(current_user, proficiency), method: :get %>
+      </div>
+      <div>
+        <%= link_to "Delete Skill", mind_proficiency_path(current_user, proficiency), method: :delete,
+        confirm: "Are you sure you want to delete this skill?" %><br><br>
       </div>
     </div>
   <% end %>
