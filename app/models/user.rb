@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     
   def watching?(other_user)
     watched_user_ids.include? other_user.id
-  end 
+  end
 
   def name
     if first_name.present? && last_name.present?
