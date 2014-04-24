@@ -18,7 +18,16 @@
   <div>
     <%= form.telephone_field :telephone, placeholder: "Phone Number" %>
   </div>
+  <div>
+    <%= form.url_field :twitter, placeholder: "Twitter" %>
+  </div>
+  <div>
+    <%= form.url_field :linked_in, placeholder: "LinkedIn" %>
+  </div>
+  <div>
+    <%= form.text_field :github, placeholder: "GitHub" %>
+  </div>
     <%= hidden_field_tag(has_profile: :true) %>
-    <%= form.submit "Update Personal Information" %>
+    <%= form.submit "Update Contact Information" %>
   </div>
 <% end %>

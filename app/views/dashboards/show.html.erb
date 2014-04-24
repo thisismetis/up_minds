@@ -1,17 +1,23 @@
 <h2>Welcome</h2>
 
-<h3> Minds you are watching: </h3>
-<% @watched_users.each do |user| %>
-  <%= link_to user.name, mind_path(user) %>
-  <br>
+<% if current_user.employer? %>
+  <h4> Minds you are watching: </h4>
+  <% @watched_users.each do |user| %>
+    <%= link_to user.name, mind_path(user) %>
+    <br>
+  <% end %>
 <% end %>
 
-<h3> The following Minds are watching you: </h3>
-<% @watchers.each do |user| %>
-  <%= link_to user.name, mind_path(user) %>
-  <br>
+<% if current_user.mind? %>
+  <h4> The following users are watching you: </h4>
+  <% @watchers.each do |user| %>
+    <%= link_to user.name, mind_path(user) %>
+    <br>
+  <% end %>
+<% end %>
 
 <% if current_user.employer? %>
+  <h4>Featured Minds</h4>
   <div>
     <% @random_user.each_with_index do |user, index| %>
       <div>

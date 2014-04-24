@@ -10,14 +10,20 @@
 <% end %>
 
 <div>
-  <b><%= @user.type %></b>
-</div>
-<div>
   Phone: <b><%= @user.telephone %></b>
 </div>
 <div>
   City: <b><%= @user.city %>,
   <%= @user.state %></b>
+</div>
+<div>
+  <b>Twitter Profile:</b> <%= link_to @user.twitter, @user.twitter %>
+</div>
+<div>
+  <b>LinkedIn Profile:</b> <%= link_to @user.linked_in, @user.linked_in %>
+</div>
+<div>
+  <b>GitHub:</b> <%= link_to @user.github, @user.github %>
 </div>
 <hr>
 
