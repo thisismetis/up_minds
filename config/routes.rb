@@ -9,6 +9,7 @@ UpMinds::Application.routes.draw do
     resources :proficiencies
     member do
       post "watch"  => "watching_relationships#create"
+      delete "unwatch" => "watching_relationships#destroy"
     end
   end
 
