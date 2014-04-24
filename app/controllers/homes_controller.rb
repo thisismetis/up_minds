@@ -10,9 +10,4 @@ class HomesController < ApplicationController
   def goto_dashboard
     redirect_to dashboard_path
   end
-
-  def choose_account_type
-    redirect_to type_path
-  end
-
 end
