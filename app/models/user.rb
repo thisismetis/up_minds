@@ -12,14 +12,14 @@ class User < ActiveRecord::Base
 
   has_many :watched_user_relationships,
     foreign_key: :watcher_id,
-    class_name: "WatchingRelationship"
+    class_name: 'WatchingRelationship'
 
   has_many :watched_users,
     through: :watched_user_relationships
 
   has_many :watcher_relationships,
     foreign_key: :watched_user_id,
-    class_name: "WatchingRelationship"
+    class_name: 'WatchingRelationship'
 
   has_many :watchers,
     through: :watcher_relationships
@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     
   def watching?(other_user)
     watched_user_ids.include? other_user.id
-  end 
+  end
 
   def name
     if first_name.present? && last_name.present?
