@@ -10,4 +10,65 @@
 <% @watchers.each do |user| %>
   <%= link_to user.name, mind_path(user) %>
   <br>
+
+<% if current_user.employer? %>
+  <div>
+    <% @random_user.each_with_index do |user, index| %>
+      <div>
+        <%= link_to user.name, user %>
+      </div>
+
+      <div id="skillschart<%= index %>" style="width: 800px; height:250px;"></div>
+
+      <script>
+      var chart; var chart<%= index %>
+      $(function () {
+        $chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'skillschart<%= index %>',
+                type: 'bar'
+            },
+            tooltip: {
+              enabled: false
+            },
+            credits: {
+                text: '',
+            },
+            legend: {
+                enabled: false
+            },
+            title: {
+                text: 'Skills',
+                color: '000000'
+            },
+            xAxis: {
+                categories: <%== user.proficiencies.map(&:skill_name) %>,
+                gridLineWidth: 0,
+                labels: {
+                    enabled: true,
+                },
+            },
+            plotOptions: {
+                series: {
+                    color: '#68228B'
+                }
+            },
+            yAxis: {
+                title: {
+                    text: ''
+                },
+                gridLineWidth: 0,
+                labels: {
+                    enabled: false
+                }
+            },
+            series: [{
+                data: <%== user.proficiencies.map(&:level) %>
+            }],
+          });
+        });
+      </script>
+      <hr>
+    <% end %>
+  </div>
 <% end %>
