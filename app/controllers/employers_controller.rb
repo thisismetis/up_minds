@@ -1,6 +1,10 @@
 class EmployersController < ApplicationController
   def show
     @employer = Employer.find(params[:id])
+    @employer_profile = @employer.profile
+  end
+
+  def new
     @employer_profile = EmployerProfile.new
   end
 
@@ -11,6 +15,7 @@ class EmployersController < ApplicationController
 
   def edit
     @employer_profile = current_user.employer_profile
+    @employer = current_user
   end
 
   def update

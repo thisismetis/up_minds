@@ -1,4 +1,4 @@
-<%= form_for @employer_profile do |form|%>
+<%= form_for [current_user, @employer_profile], url:employer_profile_path do |form|%>
   <div>
     <%= form.label :company_name, "Company Name " %>
     <%= form.text_field :company_url, placeholder: "Company Name" %>

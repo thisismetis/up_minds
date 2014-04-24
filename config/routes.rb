@@ -5,7 +5,9 @@ UpMinds::Application.routes.draw do
   resource :type, only: [:show]
   resources :users, only: [:new, :edit, :show, :update]
 
-  resources :employers, only: [:edit, :show]
+  resources :employers, only: [:show] do
+    resources :profiles, only: [:new, :edit, :update, :create]
+  end
 
   resources :minds, only: [:show, :edit, :update] do
     resources :projects, only: [:new, :create, :show]
