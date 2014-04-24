@@ -21,8 +21,6 @@ UpMinds::Application.routes.draw do
     end
   end
 
-
-
   resource :dashboard, only: [:show]
   resource :search, only: [:show]
 end
