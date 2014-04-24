@@ -19,14 +19,14 @@ class User < ActiveRecord::Base
    end
 
   def no_type?
-    type.empty?
+    %w(Employer Mind).exclude?(type)
   end
 
   def employer?
-    type  == "Employer"
+    type  == 'Employer'
   end
 
   def mind?
-    type == "Mind"
+    type == 'Mind'
   end
 end
