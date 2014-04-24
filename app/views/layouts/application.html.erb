@@ -16,10 +16,17 @@
     <div class="nav">
       <ul id="navigation-menu">
         <% if signed_in? %>
-          <li><%= link_to "View your Profile", mind_path(current_user) %></li>
-          <li><%= link_to "Update your Personal Information", edit_user_path(current_user) %></li>
-          <li><%= link_to "View your Projects", projects_path %></li>
-          <li><%= link_to "View your skills", mind_proficiencies_path(current_user) %></li>
+          <% if current_user.no_type? %>
+            <li><%= link_to "Choose your account type", type_path %></li>
+          <% elsif current_user.employer? %>
+            <li><%= link_to "Personal Information", edit_user_path(current_user) %></li>
+            <li><%= link_to "Employer Profile", employer_path(current_user) %></li>
+          <% elsif current_user.mind? %>
+            <li><%= link_to "Personal Information", edit_user_path(current_user) %></li>
+            <li><%= link_to "Profile", mind_path(current_user) %></li>
+            <li><%= link_to "Projects", projects_path %></li>
+            <li><%= link_to "Skills", mind_proficiencies_path(current_user) %></li>
+          <% end %>
           <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
         <% end %>
       </ul>

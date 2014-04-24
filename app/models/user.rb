@@ -43,4 +43,16 @@ class User < ActiveRecord::Base
        email
      end
    end
+
+  def no_type?
+    %w(Employer Mind).exclude?(type)
+  end
+
+  def employer?
+    type  == 'Employer'
+  end
+
+  def mind?
+    type == 'Mind'
+  end
 end
