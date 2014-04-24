@@ -28,6 +28,8 @@
             <li><%= link_to "Skills", mind_proficiencies_path(current_user) %></li>
           <% end %>
           <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "SIGN UP!", sign_up_path %></li>
         <% end %>
       </ul>
     </div>
