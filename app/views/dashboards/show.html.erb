@@ -1,7 +1,19 @@
 <h2>Welcome</h2>
 
 <h3> Minds you are watching: </h3>
+<% @watched_users.each do |watched_user| %>
+  <%= link_to (User.find(watched_user.watched_user_id).name), 
+    mind_path(watched_user.watched_user_id) %>
+<% end %>
 
-<h3> Minds watching you: </h3>
-  
+
+
+
+
+<h3> The following Minds are watching you: </h3>
+<% @watchers.each do |watcher| %>
+  <%= link_to (User.find(watcher.watcher_id).name),
+    mind_path(watcher.watcher_id) %>
+  <br>
+<% end %>  
   
