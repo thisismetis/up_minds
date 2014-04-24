@@ -10,7 +10,7 @@ class WatchingRelationship < ActiveRecord::Base
 
   def cannot_watch_yourself
     if watched_user_id == watcher_id
-      errors.add(:base, "You cannot watch yourself.")
+      errors.add(:base, 'You cannot watch yourself.')
     end
   end
 end
